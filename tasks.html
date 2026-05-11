@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks – OB Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="layout">
+ 
+  
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="logo.png" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" />
+      <span>OB Portal<small>Student Dashboard</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html"><span class="icon">🏠</span><span>Dashboard</span></a>
+      <a href="notebooks.html"><span class="icon">📓</span><span>Virtual Notebooks</span></a>
+      <a href="tasks.html"><span class="icon">✅</span><span>Tasks</span></a>
+      <a href="profile.html"><span class="icon">👤</span><span>Profile</span></a>
+    </nav>
+    <div class="nav-logout">
+      <a href="#" onclick="handleLogout()"><span class="icon">🚪</span><span>Logout</span></a>
+    </div>
+  </aside>
+ 
+  
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Tasks</div>
+        <div class="page-subtitle">Choose a task to work on.</div>
+      </div>
+    </div>
+ 
+    <div class="page-content">
+      <div class="tasks-grid">
+ 
+        
+        <div class="task-card">
+          <div class="task-subject">📐 Mathematics</div>
+          <div class="task-name">Drill Sheet 2</div>
+          <div class="task-deadline">
+            <span class="icon">🕐</span>
+            Deadline: April 9, 2026 | 10:00 A.M.
+          </div>
+          <span class="badge-overdue">Past Due</span>
+          <button class="btn-task" onclick="handleTakeActivity('Mathematics', 'Drill Sheet 2')">Take this activity</button>
+        </div>
+ 
+        
+        <div class="task-card">
+          <div class="task-subject">🔬 Science</div>
+          <div class="task-name">Lab Activity 3</div>
+          <div class="task-deadline">
+            <span class="icon">🕐</span>
+            Deadline: April 10, 2026 | 11:00 A.M.
+          </div>
+          <span class="badge-overdue">Past Due</span>
+          <button class="btn-task" onclick="handleTakeActivity('Science', 'Lab Activity 3')">Take this activity</button>
+        </div>
+ 
+        
+        <div class="task-card">
+          <div class="task-subject">💻 ICT</div>
+          <div class="task-name">Quarter Project</div>
+          <div class="task-deadline">
+            <span class="icon">🕐</span>
+            Deadline: May 8, 2026 | 2:30 P.M.
+          </div>
+          <span class="badge-overdue">Past Due</span>
+          <button class="btn-task submit" id="submit-btn-ICT" onclick="handleSubmit('ICT')">Submit</button>
+        </div>
+ 
+        
+        <div class="task-card">
+          <div class="task-subject">🌿 Values Education</div>
+          <div class="task-name">Film Critique</div>
+          <div class="task-deadline">
+            <span class="icon">🕐</span>
+            Deadline: April 22, 2026 | 8:00 A.M.
+          </div>
+          <span class="badge-overdue">Past Due</span>
+          <button class="btn-task" onclick="handleVideoClip()">▶ Play Video Clip</button>
+        </div>
+ 
+      </div>
+ 
+      
+      <div style="margin-top:24px;padding:16px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;font-size:13px;color:var(--muted);">
+        <span id="task-counter"></span>
+      </div>
+    </div>
+ 
+    <footer>
+      <span id="footer-info"></span>
+      <span>Sources: <a href="https:
+    </footer>
+  </div>
+ 
+</div>
+<script src="proj.js"></script>
+<script>
+  loadTasksPage();
+ 
+  
+  var total = 4;
+  var pending = countPendingTasks();
+  document.getElementById('task-counter').innerHTML =
+    '📋 You have <strong style="color:var(--accent2)">' + pending + '</strong> pending task(s) out of <strong>' + total + '</strong> total.';
+</script>
+</body>
+</html>

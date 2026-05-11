@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile – OB Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="layout">
+ 
+  
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="logo.png" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" />
+      <span>OB Portal<small>Student Dashboard</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html"><span class="icon">🏠</span><span>Dashboard</span></a>
+      <a href="notebooks.html"><span class="icon">📓</span><span>Virtual Notebooks</span></a>
+      <a href="tasks.html"><span class="icon">✅</span><span>Tasks</span></a>
+      <a href="profile.html"><span class="icon">👤</span><span>Profile</span></a>
+    </nav>
+    <div class="nav-logout">
+      <a href="#" onclick="handleLogout()"><span class="icon">🚪</span><span>Logout</span></a>
+    </div>
+  </aside>
+ 
+  
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Profile</div>
+        <div class="page-subtitle">Student Information</div>
+      </div>
+    </div>
+ 
+    <div class="page-content">
+      <div class="profile-layout">
+ 
+        
+        <div class="profile-left">
+          <div class="profile-avatar-card">
+            <div class="avatar-circle" id="avatar-img">👤</div>
+            <div class="profile-name">Jarvis Joven</div>
+            <div class="profile-section-tag">Grade 9 – Emerald</div>
+            <input type="file" id="file-upload" accept="image/*" style="display:none" onchange="handleFileUpload(this)" />
+            <button class="btn-upload" onclick="document.getElementById('file-upload').click()">📷 Change Profile Picture</button>
+          </div>
+        </div>
+ 
+        
+        <div>
+          <div class="info-card">
+            <h3>Student Information</h3>
+ 
+            <div class="info-row">
+              <span class="info-label">Student ID</span>
+              <span class="info-val">SN123456</span>
+            </div>
+ 
+            <div class="info-row">
+              <span class="info-label">Contact Number</span>
+              <span class="info-val">+63 915 000 0001</span>
+            </div>
+ 
+            <div class="info-row">
+              <span class="info-label">Email Address</span>
+              <span class="info-val">joven.j@obmontessori.edu.ph</span>
+            </div>
+ 
+            <div class="info-row">
+              <span class="info-label">Gender</span>
+              <span class="info-val">Male</span>
+            </div>
+ 
+            <div class="info-row">
+              <span class="info-label">Grade & Section</span>
+              <span class="info-val">Grade 9 – Emerald</span>
+            </div>
+ 
+            <div class="info-row">
+              <span class="info-label">School Year</span>
+              <span class="info-val">2025 – 2026</span>
+            </div>
+ 
+            <button class="btn-change-pw" onclick="showChangePasswordModal()">🔒 Change Password</button>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+ 
+    <footer>
+      <span id="footer-info"></span>
+      <span>Sources: <a href="https:
+    </footer>
+  </div>
+ 
+</div>
+ 
+ 
+<div class="modal-overlay" id="pw-modal">
+  <div class="modal-box">
+    <h3>🔒 Change Password</h3>
+ 
+    <div class="form-group">
+      <label>Current Password</label>
+      <input type="password" id="current-pw" placeholder="Enter current password" />
+    </div>
+ 
+    <div class="form-group">
+      <label>New Password</label>
+      <input type="password" id="new-pw" placeholder="Enter new password (min. 6 chars)" />
+    </div>
+ 
+    <div class="form-group">
+      <label>Confirm New Password</label>
+      <input type="password" id="confirm-pw" placeholder="Re-enter new password" />
+    </div>
+ 
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="hideModal()">Cancel</button>
+      <button class="btn-confirm" onclick="handleChangePassword()">Save Changes</button>
+    </div>
+  </div>
+</div>
+ 
+<script src="proj.js"></script>
+<script>loadProfilePage();</script>
+</body>
+</html>

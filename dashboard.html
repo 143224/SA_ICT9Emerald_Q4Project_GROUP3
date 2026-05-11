@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – OB Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="layout">
+ 
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="logo.png" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" />
+      <span>OB Portal<small>Student Dashboard</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html"><span class="icon">🏠</span><span>Dashboard</span></a>
+      <a href="notebooks.html"><span class="icon">📓</span><span>Virtual Notebooks</span></a>
+      <a href="tasks.html"><span class="icon">✅</span><span>Tasks</span></a>
+      <a href="profile.html"><span class="icon">👤</span><span>Profile</span></a>
+    </nav>
+    <div class="nav-logout">
+      <a href="#" onclick="handleLogout()"><span class="icon">🚪</span><span>Logout</span></a>
+    </div>
+  </aside>
+ 
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Dashboard</div>
+        <div class="page-subtitle">Quarter Work Plan</div>
+      </div>
+    </div>
+ 
+    <div class="page-content">
+ 
+      <div class="quote-ticker">
+        <span class="q-icon">💡</span>
+        <span class="q-text" id="quote-text"></span>
+      </div>
+ 
+      <div class="welcome-banner">
+        <h2 id="welcome-name">Welcome back!</h2>
+        <p>Here's your academic overview for this quarter. Keep it up! 💪</p>
+      </div>
+ 
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">Pending Tasks</div>
+          <div class="stat-num" id="pending-count">0</div>
+          <div class="stat-desc">tasks remaining</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Average Score</div>
+          <div class="stat-num" id="avg-score">0</div>
+          <div class="stat-desc">across all subjects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Subjects</div>
+          <div class="stat-num">6</div>
+          <div class="stat-desc">enrolled this year</div>
+        </div>
+      </div>
+ 
+      <div class="curriculum-card">
+        <h3>📚 Information and Communications Technology — The Curriculum</h3>
+        <div class="quarter-list">
+          <div class="quarter-item">
+            <div class="q-label">I. 1st Quarter</div>
+            <ul>
+              <li>Introduction to HTML</li>
+              <li>Basic CSS Styling</li>
+              <li>Quarter Project</li>
+            </ul>
+          </div>
+          <div class="quarter-item">
+            <div class="q-label">II. 2nd Quarter</div>
+            <ul>
+              <li>Introduction to Bootstrap</li>
+              <li>Bootstrap with Forms</li>
+              <li>Quarter Project</li>
+            </ul>
+          </div>
+          <div class="quarter-item">
+            <div class="q-label">III. 3rd Quarter</div>
+            <ul>
+              <li>Introduction to JavaScript</li>
+              <li>JS Data Types, Operators & Variables</li>
+              <li>JS Functions and Events</li>
+              <li>Quarter Project</li>
+            </ul>
+          </div>
+          <div class="quarter-item">
+            <div class="q-label">IV. 4th Quarter</div>
+            <ul>
+              <li>Conditional Statements</li>
+              <li>Iteration Statements</li>
+              <li>Quarter Project</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <footer>
+      <span id="footer-info"></span>
+      <span>Sources: <a href="https://www.w3schools.com" target="_blank" style="color:var(--muted);">w3schools.com</a> &nbsp;|&nbsp; <a href="https://getbootstrap.com" target="_blank" style="color:var(--muted);">Bootstrap</a></span>
+    </footer>
+  </div>
+ 
+</div>
+<script src="proj.js"></script>
+<script>
+  var quotes = [
+    { text: "Education is the passport to the future.", author: "Malcolm X" },
+    { text: "The more that you read, the more things you will know.", author: "Dr. Seuss" },
+    { text: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier" },
+    { text: "Learning is not attained by chance; it must be sought with ardor.", author: "Abigail Adams" },
+    { text: "Strive for progress, not perfection.", author: "Unknown" },
+    { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+    { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" }
+  ];
+ 
+  var tasks = [
+    { subject: "Mathematics", done: false },
+    { subject: "Science", done: false },
+    { subject: "ICT", done: true },
+    { subject: "Values Education", done: false }
+  ];
+ 
+  var scores = [88, 92, 79, 95, 84];
+ 
+  var dayIdx = new Date().getDay() % quotes.length;
+  var q = quotes[dayIdx];
+  document.getElementById('quote-text').innerHTML = '"' + q.text + '" — <strong>' + q.author + '</strong>';
+ 
+  var pending = 0;
+  for (var i = 0; i < tasks.length; i++) {
+    if (!tasks[i].done) pending++;
+  }
+  document.getElementById('pending-count').textContent = pending;
+ 
+  var total = 0;
+  for (var j = 0; j < scores.length; j++) {
+    total = total + scores[j];
+  }
+  document.getElementById('avg-score').textContent = Math.round(total / scores.length);
+ 
+  document.getElementById('welcome-name').textContent = "Welcome back, " + (sessionStorage.getItem('username') || 'Student') + "!";
+ 
+  document.getElementById('footer-info').innerHTML = "Jarvis Joven &nbsp;|&nbsp; Grade 9 - Emerald &nbsp;|&nbsp; AY 2025-2026";
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – OB Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%       { transform: translateX(-10px); }
+      40%       { transform: translateX(10px); }
+      60%       { transform: translateX(-6px); }
+      80%       { transform: translateX(6px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .login-card { animation: fadeIn 0.5s ease; }
+  </style>
+</head>
+<body class="login-page">
+ 
+  <div class="login-card">
+    
+    <div class="login-logo">
+      <img src="logo.png" style="width:80px;height:80px;object-fit:contain;" />
+      <h1>OB Portal</h1>
+      <p>Our Lady of Baclaran Montessori Center</p>
+    </div>
+ 
+    
+    <div class="error-msg" id="login-error"></div>
+ 
+    
+    <form onsubmit="return handleLogin(event)">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" autocomplete="username" />
+      </div>
+ 
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" />
+      </div>
+ 
+      <div class="stay-logged">
+        <input type="checkbox" id="stay-in" />
+        <label for="stay-in">Stay logged in — your session will remain active on this device.</label>
+      </div>
+ 
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+ 
+    <div class="login-links">
+      <a href="#">Forgot username / password?</a>
+    </div>
+  </div>
+ 
+  
+  <div style="position:fixed;bottom:0;right:0;padding:10px 16px;font-size:11px;color:#555;background:rgba(0,0,0,0.4);" id="footer-info"></div>
+ 
+  <script src="proj.js"></script>
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      setFooter();
+      
+      var hint = document.createElement('p');
+      hint.style.cssText = 'text-align:center;font-size:11px;color:#555;margin-top:14px;';
+      hint.textContent = 'Demo: username = student01 | password = obmc2026';
+      document.querySelector('.login-card').appendChild(hint);
+    });
+  </script>
+</body>
+</html>
